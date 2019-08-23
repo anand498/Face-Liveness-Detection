@@ -28,7 +28,7 @@ while True:
             #if the face coems inside and teh dimensionsof the video is more than half the size of window
             # the frame will be captured.
             cv2.putText(frame,"Perfect", (10, 30),cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
-            cv2.imwrite(os.path.join('/Users/anand498/Desktop/capture/real',"real%d.jpg" % random.randint(40000,90000)), var1) 
+            cv2.imwrite(os.path.join('{path to directory of real images}',"real%d.jpg" % random.randint(40000,90000)), var1) 
 
   
     label = "{}".format(len(faces))
