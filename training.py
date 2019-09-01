@@ -1,23 +1,14 @@
-# -*- coding: utf-8 -*-
-
-
-
-
-
 
 import matplotlib
 matplotlib.use("Agg")
-
-# import the necessary packages
-from architecure import MiniVGG
+from architecture import MiniVGG
 import tensorflow as tf
 from keras.preprocessing.image import ImageDataGenerator
 from keras.optimizers import Adam
 from sklearn.model_selection import train_test_split
 from keras.preprocessing.image import img_to_array
 from keras.utils import to_categorical
-from sklearn.metrics import classification_report
-from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report,confusion_matrix
 from imutils import paths
 import matplotlib.pyplot as plt
 import numpy as np
@@ -26,7 +17,7 @@ import random
 import cv2
 import os
 
-EPOCHS = 3
+EPOCHS = 10
 INIT_LR = 1e-3 #Initial Learning rate
 BS = 32 # Bach size to feed
 
@@ -35,7 +26,7 @@ print("Load images' NPY file")
 data = []
 labels = []
 # grab the image paths and randomly shuffle them
-imagePaths = sorted(list(paths.list_images(r"/content/drive/My Drive/Colab Notebooks/DepthImage")))
+imagePaths = sorted(list(paths.list_images(r"{path of the image dataset directory}")))
 random.seed(42)
 random.shuffle(imagePaths)
 
