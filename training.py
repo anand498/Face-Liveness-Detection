@@ -1,14 +1,5 @@
 
 import matplotlib
-matplotlib.use("Agg")
-from architecture import MiniVGG
-import tensorflow as tf
-from keras.preprocessing.image import ImageDataGenerator
-from keras.optimizers import Adam
-from sklearn.model_selection import train_test_split
-from keras.preprocessing.image import img_to_array
-from keras.utils import to_categorical
-from sklearn.metrics import classification_report,confusion_matrix
 from imutils import paths
 import matplotlib.pyplot as plt
 import numpy as np
@@ -16,6 +7,15 @@ import argparse
 import random
 import cv2
 import os
+matplotlib.use("Agg")
+from architecture import MiniVGG
+import tensorflow as tf
+from keras.preprocessing.image import ImageDataGenerator,img_to_array
+from keras.optimizers import Adam
+from sklearn.model_selection import train_test_split
+from keras.utils import to_categorical
+from sklearn.metrics import classification_report,confusion_matrix
+
 
 EPOCHS = 10
 INIT_LR = 1e-3 #Initial Learning rate
