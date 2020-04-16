@@ -16,13 +16,15 @@ from sklearn.model_selection import train_test_split
 from keras.utils import to_categorical
 from sklearn.metrics import classification_report,confusion_matrix
 
-
-EPOCHS = 10
+img_height=128 # height of the training image
+img_width=128 #width of the training image
+EPOCHS = 10 #number of epochs to be trained for
+num_classes=2 #number of labels
 INIT_LR = 1e-3 #Initial Learning rate
 BS = 32 # Bach size to feed
 
 # initialize the data and labels
-print("Load images' NPY file")
+print("Processing images in form of  NPY file")
 data = []
 labels = []
 # grab the image paths and randomly shuffle them
@@ -34,7 +36,7 @@ random.shuffle(imagePaths)
 for imagePath in imagePaths:
 	# load the image, pre-process it, and store it in the data list
 	image = cv2.imread(imagePath)
-	image = cv2.resize(image, (128, 128))
+	image = cv2.resize(image, (img_height, img_width))
 	image = img_to_array(image)
 	data.append(image)
 
@@ -55,17 +57,17 @@ labels=np.load('labels.npy')
 # the data for training and the remaining 25% for testing
 (trainX, testX, trainY, testY) = train_test_split(data,
 	labels, test_size=0.25, random_state=42)
-
+channels=trainX.shape[3]
 # convert the labels from integers to vectors
-trainY = to_categorical(trainY, num_classes=2)
-testY = to_categorical(testY, num_classes=2)
+trainY = to_categorical(trainY, num_classes)
+testY = to_categorical(testY, num_classes)
 
 # construct the image generator for data augmentation
 aug = ImageDataGenerator(rotation_range=30, width_shift_range=0.1,height_shift_range=0.1, shear_range=0.2, zoom_range=0.2,horizontal_flip=True, fill_mode="nearest")
 
 # initialize the model
 print("Compiling model...")
-model = MiniVGG.build(width=128, height=128, depth=3, classes=2)
+model = MiniVGG.build(width=img_width, height=img_height, depth=channel, classes=num_classes)
 opt = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS) #Optimise uisng Adam 
 model.compile(loss="binary_crossentropy", optimizer=opt,metrics=["accuracy"])
 
@@ -76,7 +78,7 @@ H = model.fit_generator(aug.flow(trainX, trainY, batch_size=BS),
 	epochs=EPOCHS, verbose=1)
 label_name=["real","fake"]
 print("[INFO] evaluating network...")
-predictions = model.predict(testX, batch_size=128) 
+predictions = model.predict(testX, batch_size=BS) 
 print(classification_report(testY.argmax(axis=1),
 predictions.argmax(axis=1)))
 
@@ -84,6 +86,4 @@ cm = confusion_matrix(testY.argmax(axis=1), predictions.argmax(axis=1))
 total = sum(sum(cm))
 acc = (cm[0, 0] + cm[1, 1]) / total
 print(cm)
-
-N = EPOCHS
 
