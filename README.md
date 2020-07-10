@@ -12,6 +12,7 @@ between actual faces and fake faces in realtime environment. The image frame cap
 * Python3
 * Tensorflow
 * dlib
+* Keras
 * numpy
 * Imutils
 * OpenCV (cv) for python3
@@ -46,8 +47,4 @@ Clone the complete directory.
 [facepredictor.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/facepredictor.py):
 Run this file after making the changes in the path of the pre-trained model.
 
-## Future Work
- The whole project is based on the dataset that uses an image dataset that uses faces and the rest of environment behing it. That brings a lot of factors and elements into consideration for prediction.
- In the next version of this directory, I will make a model that is only trained on the **face features** of the test image by cropping the rest of the enivronment.
-Will keep updating the repo.
-Stay Tuned.
+
