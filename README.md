@@ -24,7 +24,7 @@ between actual faces and fake faces in realtime environment. The image frame cap
 [main.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/main.py):
 This file is the main script that would call the predictperson function present in the utilr function
 
-[training.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/training.py):
+[training.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/livenessdetect/training.py):
 Along with the architecture script, this file includes various parameter tuning steps of the model.
 
 [model.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/livenessdetect/model.py) :
@@ -49,7 +49,7 @@ python main.py
 ```
 And you're good to go!
 
-Don't forget to  :star:  this project if I made your life easier after this! :wink:
+Don't forget to  :star:  the repo if I made your life easier with this. :wink:
 
 
 
