@@ -1,0 +1,6 @@
+imutils==0.5.4
+Keras==2.4.3
+h5py==2.10.0
+sklearn==0.0
+tensorflow==2.4.1
+opencv-python==4.5.1.48
