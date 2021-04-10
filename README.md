@@ -49,7 +49,7 @@ python main.py
 ```
 And you're good to go!
 
-Don't forget to  :star:  the repo if I made your life easier with this. :wink:
+Don't forget to  :star:    the repo if I made your life easier with this. :wink:
 
 
 
