@@ -14,25 +14,23 @@ between actual faces and fake faces in realtime environment. The image frame cap
 * dlib
 * Keras
 * numpy
+* sklearn
 * Imutils
-* OpenCV (cv) for python3
+* OpenCV 
 
 
 ## File Description
 
-[facepredictor.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/facepredictor.py):
-This file is the main script that would capture the faces and process them before loading it into the model for prediction. The user needs to ensure that the face should be within the designated frame.
+[main.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/facepredictor.py):
+This file is the main script that would call the predictperson function present in the utilr function
 
 [training.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/training.py):
 Along with the architecture script, this file includes various parameter tuning steps of the model.
 
-[eye_aspect_ratio.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/eye_aspect_ratio.py):
-This is an *optional script* if one needs to add multiple checks like blinking of the eye for the liveness of the video feed.
-
-[architecture.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/architecture.py) :
+[model.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/architecture.py) :
 Has the main CNN architecture for training the dataset
 
-## The Concolutional Neural Network
+## The Convolutional Neural Network
 
 The network consists of **3** hidden conlvolutional layers with **relu** as the activation function. Finally it has **1** fully connected layer.
 
@@ -43,8 +41,15 @@ The ratio of training to testing bifuracation is **75:25**
 
 ## How to use it in real time.
 
-Clone the complete directory.
-[facepredictor.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/facepredictor.py):
-Run this file after making the changes in the path of the pre-trained model.
+
+```
+git clone https://github.com/anand498/Face-Liveness-Detection.git
+pip install -r requirements.txt
+python main.py
+```
+And you're good to go!
+
+Don't forget to :star: this project if I made your life easier after this!:wink:
+
 
 
