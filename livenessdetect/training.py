@@ -20,7 +20,7 @@ BS = 32 # Bach size to feed
 data = []
 labels = []
 # grab the image paths and randomly shuffle them
-imagePaths = sorted(list(paths.list_images(r"/Users/anand498/Desktop/Work/Github/Face-Liveness-Detection/capture")))
+imagePaths = sorted(list(paths.list_images(r"{{path to folder containing fake and real folders}}")))
 random.seed(42)
 random.shuffle(imagePaths)
 
