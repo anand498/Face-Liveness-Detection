@@ -21,13 +21,13 @@ between actual faces and fake faces in realtime environment. The image frame cap
 
 ## File Description
 
-[main.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/facepredictor.py):
+[main.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/main.py):
 This file is the main script that would call the predictperson function present in the utilr function
 
 [training.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/training.py):
 Along with the architecture script, this file includes various parameter tuning steps of the model.
 
-[model.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/architecture.py) :
+[model.py](https://github.com/anand498/Face-Liveness-Detection/blob/master/livenessdetect/model.py) :
 Has the main CNN architecture for training the dataset
 
 ## The Convolutional Neural Network
@@ -39,7 +39,7 @@ The network is trained with **10** epochs size with batch size **32**
 The ratio of training to testing bifuracation is **75:25**
 
 
-## How to use it in real time.
+### How to use application in real time.
 
 
 ```
@@ -49,7 +49,7 @@ python main.py
 ```
 And you're good to go!
 
-Don't forget to :star: this project if I made your life easier after this!:wink:
+Don't forget to  :star:  this project if I made your life easier after this! :wink:
 
 
 
