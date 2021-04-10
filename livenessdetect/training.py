@@ -1,7 +1,7 @@
 from imutils import paths
 import numpy as np
 import cv2,os,random
-from architecture import MiniVGG
+from model import MiniVGG
 import tensorflow as tf
 from keras.preprocessing.image import ImageDataGenerator,img_to_array
 from keras.optimizers import Adam
@@ -20,7 +20,7 @@ BS = 32 # Bach size to feed
 data = []
 labels = []
 # grab the image paths and randomly shuffle them
-imagePaths = sorted(list(paths.list_images(r"{path of the image dataset directory}")))
+imagePaths = sorted(list(paths.list_images(r"/Users/anand498/Desktop/Work/Github/Face-Liveness-Detection/capture")))
 random.seed(42)
 random.shuffle(imagePaths)
 
@@ -59,7 +59,7 @@ aug = ImageDataGenerator(rotation_range=30, width_shift_range=0.1,height_shift_r
 
 # initialize the model
 print("Compiling model...")
-model = MiniVGG.build(width=img_width, height=img_height, depth=channels, classes=num_classes)
+model = MiniVGG(width=img_width, height=img_height, depth=channels, classes=num_classes)
 opt = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS) #Optimise uisng Adam 
 model.compile(loss="binary_crossentropy", optimizer=opt,metrics=["accuracy"])
 
