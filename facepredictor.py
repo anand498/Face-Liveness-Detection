@@ -1,15 +1,11 @@
 from keras.preprocessing.image import img_to_array
 from keras.models import load_model
-from scipy.spatial import distance as dist
-from imutils.video import FileVideoStream
-from imutils.video import VideoStream
-from imutils import face_utils
 import numpy as np
-import imutils
-import cv2
-import os
-import sys
-import dlib
+import os,cv2
+
+model = load_model("models/anandfinal.hdf5")
+# cascPath = 
+faceCascade = cv2.CascadeClassifier("haarcascade_frontalface_default.xml")
 
 def predictperson():
 	video_capture = cv2.VideoCapture(0)
@@ -54,12 +50,6 @@ def predictperson():
 				cv2.putText(frame,"Please come closer to the camera", (10, 390),cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
 		cv2.imshow("Frame",frame)
 			
-	
 
-if __name__ == '__main__':
-
-	model = load_model("anandfinal.hdf5")
-	cascPath = "haarcascade_frontalface_default.xml"
-	faceCascade = cv2.CascadeClassifier(cascPath)
-	predictperson()
+predictperson()
 	

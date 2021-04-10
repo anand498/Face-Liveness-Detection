@@ -1,13 +1,6 @@
-
-import matplotlib
 from imutils import paths
-import matplotlib.pyplot as plt
 import numpy as np
-import argparse
-import random
-import cv2
-import os
-matplotlib.use("Agg")
+import cv2,os,random
 from architecture import MiniVGG
 import tensorflow as tf
 from keras.preprocessing.image import ImageDataGenerator,img_to_array
@@ -24,7 +17,6 @@ INIT_LR = 1e-3 #Initial Learning rate
 BS = 32 # Bach size to feed
 
 # initialize the data and labels
-print("Processing images in form of  NPY file")
 data = []
 labels = []
 # grab the image paths and randomly shuffle them
@@ -67,7 +59,7 @@ aug = ImageDataGenerator(rotation_range=30, width_shift_range=0.1,height_shift_r
 
 # initialize the model
 print("Compiling model...")
-model = MiniVGG.build(width=img_width, height=img_height, depth=channel, classes=num_classes)
+model = MiniVGG.build(width=img_width, height=img_height, depth=channels, classes=num_classes)
 opt = Adam(lr=INIT_LR, decay=INIT_LR / EPOCHS) #Optimise uisng Adam 
 model.compile(loss="binary_crossentropy", optimizer=opt,metrics=["accuracy"])
 
